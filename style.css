@@ -1,0 +1,50 @@
+/* ==========================================================
+   EXTERNAL STYLE SHEET  (style.css)
+   Linked from the HTML <head> with:
+   <link rel="stylesheet" href="style.css">
+   Best for: styles shared across many pages (site-wide look).
+   ========================================================== */
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f4f6fb;
+  color: #222;
+  margin: 0;
+  padding: 24px;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+  color: #1d3557;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 16px auto;
+  max-width: 720px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* External sheet styles every paragraph blue-grey... */
+p {
+  color: #457b9d;
+}
+
+/* ...and every .tag as a small label */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: #fff;
+  background: #457b9d;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
