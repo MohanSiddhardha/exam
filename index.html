@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS: Inline, Internal and External</title>
+
+  <!-- 1) EXTERNAL CSS: linked from a separate .css file -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 2) INTERNAL CSS: written inside a <style> tag in the <head> -->
+  <style>
+    /* Applies to this page only. Loaded AFTER style.css,
+       so on equal specificity it overrides the external rules. */
+    .internal-box {
+      border-left: 6px solid #e76f51;
+      background-color: #fff3ee;
+    }
+
+    /* Overrides the external "p { color: #457b9d }" for this class */
+    .internal-box p {
+      color: #b5472a;
+      font-style: italic;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    th, td {
+      border: 1px solid #ccd3df;
+      padding: 8px;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    th { background: #e9eef7; }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Demo: Three Ways to Add Styles</h1>
+
+  <!-- ========== EXTERNAL ========== -->
+  <div class="card">
+    <span class="tag">External</span>
+    <h2>External CSS</h2>
+    <p>
+      This card and paragraph are styled entirely by <code>style.css</code>,
+      attached with a <code>&lt;link&gt;</code> tag.
+    </p>
+  </div>
+
+  <!-- ========== INTERNAL ========== -->
+  <div class="card internal-box">
+    <span class="tag" style="background:#e76f51;">Internal</span>
+    <h2>Internal CSS</h2>
+    <p>
+      This box gets its orange border, background and italic text from the
+      <code>&lt;style&gt;</code> block in this page's head. The card shape
+      still comes from the external sheet.
+    </p>
+  </div>
+
+  <!-- ========== INLINE ========== -->
+  <div class="card">
+    <span class="tag" style="background:#2a9d8f;">Inline</span>
+    <h2 style="color:#2a9d8f; text-decoration:underline;">Inline CSS</h2>
+    <p style="color:#d62828; font-size:1.2rem; font-weight:bold;">
+      This paragraph uses the <code>style</code> attribute directly on the
+      element. It wins over both the external rule (blue-grey) and any
+      internal rule.
+    </p>
+  </div>
+
+  <!-- ========== CASCADE DEMO ========== -->
+  <div class="card">
+    <h2>Which one wins?</h2>
+    <table>
+      <tr><th>Method</th><th>Where it lives</th><th>Scope</th><th>Priority</th></tr>
+      <tr><td>Inline</td><td><code>style="..."</code> attribute</td><td>One element</td><td>Highest</td></tr>
+      <tr><td>Internal</td><td><code>&lt;style&gt;</code> in <code>&lt;head&gt;</code></td><td>One page</td><td>Medium</td></tr>
+      <tr><td>External</td><td>Separate <code>.css</code> file</td><td>Whole site</td><td>Lowest*</td></tr>
+    </table>
+    <p style="font-size:0.85rem;">
+      *With equal specificity, the rule that appears <em>last</em> wins. Inline
+      styles beat selectors regardless of order (unless <code>!important</code> is used).
+    </p>
+  </div>
+
+  <p class="footer">Open the page, then edit <code>style.css</code> to see the external changes apply.</p>
+
+</body>
+</html>
